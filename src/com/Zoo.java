@@ -1,6 +1,8 @@
 package com;
 
 import com.animal.*;
+import com.aviary.Aviary;
+import com.aviary.AviarySize;
 import com.food.*;
 import com.interfaces.Swim;
 
@@ -10,12 +12,19 @@ import java.util.List;
 public class Zoo {
     public static void main(String[] args) {
 
+        Aviary aviary = new Aviary(AviarySize.BIG);
+        aviary.add(new Tiger("Kirill"));
+        Worker worker = new Worker();
+        worker.feed(aviary.get("Kirill"), new Chicken());
+        aviary.add(new Duck("Maxim"));
+        aviary.remove("Maxim");
+
+
         List<Food> food = new ArrayList<>();
         food.add(new Beef());
         food.add(new Oat());
         food.add(new Chicken());
         food.add(new Wheat());
-        Worker worker = new Worker();
 
         List<Animal> list= new ArrayList<>();
         list.add(new Duck("Daniil"));
